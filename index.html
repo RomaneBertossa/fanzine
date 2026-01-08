@@ -1,11 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Amsterdam — Derrière les lumières</title>
+	<link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    hello
+
+	<div class="progress"></div>
+
+	<!-- ========= COVER ========= -->
+	<section id="Cover" class="cover">
+
+		<!-- SOMMAIRE -->
+		<nav class="cover-nav cover-nav--top">
+			<a href="#liberte">Liberté</a>
+			<a href="#psyche">Psyché</a>
+			<a href="#underground">Underground</a>
+			<a href="#apres">Après</a>
+		</nav>
+
+		<!-- TITRE -->
+		<div class="cover-top">
+			<h1>Amsterdam</h1>
+			<h2>Derrière les lumières</h2>
+		</div>
+
+		<figure class="cover-figure">
+			<img src="images/4e1f21ff091653b4324af4c93be77c94.png" alt="">
+		</figure>
+	</section>
+
+	<!-- ========= INTRO ========= -->
+	<section id="intro">
+		<div class="row intro-layout">
+
+			<figure class="intro-image">
+				<img src="images/Enregistrementdelcran2025-11-2414.04.012-ezgif.com-video-to-gif-converter.gif" alt="">
+			</figure>
+
+			<div class="content intro-text-wrapper">
+				<div class="intro-text">
+
+					<p class="intro-title">Amsterdam</p>
+
+					<p class="intro-line">
+						n’est pas un décor.
+					</p>
+
+					<p class="intro-highlight">
+						C’est un état mental.
+					</p>
+
+					<p class="intro-line">
+						une ville qui laisse<br>
+						respirer l’expérimentation
+					</p>
+
+					<p class="intro-line">
+						qui rend la création plus facile<br>
+						<span class="intro-highlight-inline">& l’invisible plus présent.</span>
+					</p>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- ========= SECTION 1 ========= -->
+	<section id="liberte">
+		<figure><img src="images/cblack.JPG" alt=""></figure>
+		<div class="content row">
+			<h3>Un climat de liberté</h3>
+			<p>
+				Il y a des villes où l’on visite, et d’autres où l’on ressent. Amsterdam appartient à la seconde
+				catégorie. Ici, la liberté n’est pas une affiche : elle flotte. Elle se glisse dans la façon dont les
+				gens créent, s’habillent, se permettent d’essayer.
+			</p>
+			<p>
+				Ce qui donne l’impression de magie, c’est peut-être ça : une permission tacite d’expérimenter sans être
+				directement jugé. Artistiquement, mentalement, humainement.
+				<br><br><em>« la ville te laisse tranquille et ça change tout. »</em>
+			</p>
+		</div>
+	</section>
+
+	<!-- ========= SECTION 2 ========= -->
+	<section id="psyche">
+		<figure>
+			<img src="images/hhh.gif" alt="">
+		</figure>
+		<div class="content row">
+			<h3>Psyché : culture avant substance</h3>
+			<p>
+				Amsterdam est souvent réduite à une image simpliste du psychédélique. Pourtant, derrière cette façade,
+				se développe une culture plus profonde, tournée vers la perception, le décalage et l’exploration
+				intérieure.
+			</p>
+			<p>
+				Le psyché n’est pas seulement chimique : il est visuel, sonore, spirituel. Affiches bricolées,
+				lumières pauvres, typographies liquides, murs qui vibrent.
+				<br><br><em>« Amsterdam n’ajoute rien, elle enlève des filtres. »</em>
+			</p>
+		</div>
+	</section>
+
+	<!-- ========= SECTION 3 ========= -->
+	<section id="underground">
+		<figure><img src="images/ggg.jpeg" alt=""></figure>
+		<div class="content row">
+			<h3>La nuit comme réseau invisible</h3>
+			<p>
+				L’underground d’Amsterdam ne se trouve pas sur une carte : il circule. Les soirées les plus marquantes
+				ne sont jamais annoncées publiquement. Elles passent par la confiance, par messages privés, par timing.
+			</p>
+			<p>
+				Ce qui frappe, ce n’est pas l’excès mais l’organisation. Règles implicites, respect,
+				attention aux autres. L’underground n’est pas un chaos : c’est une structure invisible.
+				<br><br><em>« tu comprends vite que le respect est la règle principale. »</em>
+			</p>
+		</div>
+	</section>
+
+	<!-- ========= SECTION 4 ========= -->
+	<section id="apres">
+		<figure><img src="images/IMG_7382.jpeg" alt=""></figure>
+		<div class="content row">
+			<h3>Ce qui reste après</h3>
+			<p>
+				Le véritable impact d’Amsterdam se mesure après. Quand la nuit se termine,
+				quand les lumières s’éteignent, il reste une sensation étrange mais persistante.
+			</p>
+			<p>
+				Beaucoup repartent avec plus que des souvenirs : une idée différente de la liberté,
+				de la création et de ce que peut être une communauté.
+				<br><br><em>« le silence du matin fait plus de bruit que la nuit. »</em>
+			</p>
+		</div>
+	</section>
+
+	<script>
+		const sections = document.querySelectorAll("section");
+		const io = new IntersectionObserver(entries => {
+			entries.forEach(e => {
+				if (e.isIntersecting) e.target.classList.add("is-visible");
+			});
+		}, { threshold: 0.35 });
+		sections.forEach(s => io.observe(s));
+
+		const bar = document.querySelector(".progress");
+		window.addEventListener("scroll", () => {
+			const h = document.documentElement;
+			const sc = h.scrollTop;
+			const max = h.scrollHeight - h.clientHeight;
+			bar.style.height = (max ? (sc / max) * 100 : 0) + "vh";
+		}, { passive: true });
+
+		const cover = document.querySelector("#Cover");
+		const nav = document.querySelector(".cover-nav");
+		const navObserver = new IntersectionObserver(([entry]) => {
+			nav.classList.toggle("is-fixed", !entry.isIntersecting);
+		}, { threshold: 0.2 });
+		navObserver.observe(cover);
+	</script>
+
 </body>
+
 </html>
